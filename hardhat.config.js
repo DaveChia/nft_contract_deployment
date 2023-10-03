@@ -11,10 +11,10 @@ module.exports = {
     hardhat: {},
     sepolia: {
       url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`],
+      accounts: [process.env.PRIVATE_KEY],
     },
     polygon_mumbai: {
-      url: "https://rpc-mumbai.maticvigil.com",
+      url: API_URL,
       accounts: [process.env.PRIVATE_KEY],
     },
   },
