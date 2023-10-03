@@ -4,10 +4,9 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract NFT_Minting_With_Date_Range is ERC721, ERC721URIStorage, AccessControl, Ownable {
+contract NFT_Minting_With_Date_Range is ERC721, ERC721URIStorage, AccessControl {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
@@ -50,7 +49,7 @@ contract NFT_Minting_With_Date_Range is ERC721, ERC721URIStorage, AccessControl,
         //  Grant the DEFAULT_ADMIN_ROLE to the wallet that deployed this contract
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
-
+    
     //  This function grants the DEFAULT_ADMIN_ROLE to the selected wallet address (addressToGrantRole), the sender will need to have the DEFAULT_ADMIN_ROLE to use this function
     function grantDefaultAdminRole(address addressToGrantRole) public onlyRole(DEFAULT_ADMIN_ROLE) {
 
